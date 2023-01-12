@@ -1,28 +1,44 @@
-# ConnectFour
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
+# Connect Four in Angular
 
-## Development server
+This project is a fun side project that allows users to play the classic game of Connect Four against an opponent.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+To get started, you'll need to have Node.js and Angular CLI installed on your machine. Once you have these prerequisites, you can clone the repository and run the following commands:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+```bash
+npm install
+ng serve
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+This will install all the necessary dependencies and start a development server on http://localhost:4200/. You can then access the game by navigating to that URL in your browser.
+How to Play
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The game is simple to play. Players take turns dropping colored disks into a vertical grid with the goal of getting four disks of their color in a row horizontally, vertically, or diagonally.
 
-## Running end-to-end tests
+Each player is assigned a color (red or yellow) and will take turns dropping their disks into the grid. The disk will fall to the bottom-most available space in the column. The game ends when one player gets four disks in a row or the grid is full with no winner.
+Features
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    Classic Connect Four gameplay
+    2 player mode
+    Responsive design for different screen sizes
+    Winning animation
 
-## Further help
+Built With
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# connect-four
+    Angular
+    TypeScript
+    SCSS
+
+Contributing
+
+If you're interested in contributing to this project, please fork the repository and submit a pull request.
+License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+## Improvement
+
+[ ] implement player vs cpu 
