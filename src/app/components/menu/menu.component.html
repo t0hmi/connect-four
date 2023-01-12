@@ -1,0 +1,35 @@
+<div class="menu-container">
+    <div class="menu">
+        <img src="/assets/logo.svg">
+        <div class="menu__ctas">
+            <div class="cta cta--cpu">
+                <div class="cta-disable-tooltip">
+                    Comming soon...
+                </div>
+                <a routerLink="game">PLAY VS CPU</a>
+            </div>
+            <div class="cta cta--player"><a routerLink="game">PLAY VS PLAYER</a></div>
+            <div class="cta cta--rules" (click)="openRules()">GAME RULES</div>
+        </div>
+        <!-- rules -->
+        <div class="rules" [ngClass]="{'rules--open' : isRulesOpen}">
+            <h3>RULES</h3>
+            <div class="rules__content">
+                <div class="rule">
+                    <h6>OBJECTIVE</h6>
+                    <p>Be the first player to connect 4 of the same colored discs in a row (either vertically, horizontaly, or diagonally)</p>
+                </div>
+                <div class="rule">
+                    <h6>HOW TO PLAY</h6>
+                    <ol>
+                        <li>Red goes first in the first game.</li>
+                        <li>Players must alternate turns, and only one disc can be dropped in each turn.</li>
+                        <li>The game ends when there is a 4-in-a-row or a stalemate.</li>
+                        <li>The starter of the previous game goes second on the next game.</li>
+                    </ol>
+                    <div class="return" (click)="closeRules()">back</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="game-container" *ngIf="activePlayer$ | async as activePlayer">
+    <app-game-header></app-game-header>
+    <div class="row">
+        <app-game-player [score]="players.player1.score" [player-number]="players.player1.token" ></app-game-player>
+        <app-game-grid [activePlayer]="activePlayer"></app-game-grid>
+        <app-game-player [score]="players.player2.score" [player-number]="players.player2.token" ></app-game-player>
+    </div>
+
+    <div class="game-player-turn">
+        <ng-container *ngIf="!(isGameFinish$ | async)">
+            <div class="base" [ngClass]="{'player-1' : activePlayer.name === 'player1', 'player-2': activePlayer.name === 'player2'}">
+                <span class="player">PLAYERS'{{activePlayer.token}} TURN</span>
+                <span class="time" *ngIf="(time$ | async) as time">{{time}}s</span>
+            </div>
+            <div id="base--shadow"></div>
+        </ng-container>
+        <ng-container *ngIf="(isGameFinish$ | async)">
+            <div class="base" [ngClass]="{'player-1' : activePlayer.name === 'player1', 'player-2': activePlayer.name === 'player2'}">
+                <span class="player">PLAYERS'{{activePlayer.token}} WIN</span>
+                <span class="continue" (click)="continueGame(activePlayer)">continue</span>
+            </div>
+        </ng-container>
+    </div>
+</div>

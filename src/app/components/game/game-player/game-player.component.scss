@@ -1,0 +1,81 @@
+.game-player-container {
+    position: relative;
+    width: 100%;
+
+    img {
+        position: absolute;
+        left: 50%;
+        top: 0px;
+        width: 50px;
+        transform: translate(-50%, -50%);
+    
+        @media screen and (max-width : 960px) {
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+        
+            .player2 img {
+                right: 0;
+            }
+        }
+    
+    }
+}
+
+.game-player {
+    width: 170px;
+    height: 225px;
+    background: #FFFFFF;
+    border: 3px solid #000000;
+    border-bottom: 12px solid #000000;
+    border-radius: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    @media screen and (max-width : 960px) {
+        flex-direction: row;
+        height: auto;
+        padding: 15px;
+        width: 100%;
+
+        .player2 & {
+            flex-direction: row-reverse;
+        }
+    }
+
+    @media screen and (max-width : 500px) {
+
+        &, .player2 & {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0px;
+            padding: 0;
+        }
+
+    }
+
+    &__name {
+        text-align: center;
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    &__score {
+        text-align: center;
+        font-weight: 700;
+        font-size: 48px;
+    }
+}
+
+
+
+@media screen and (max-width : 960px) {
+    .player2 img {
+        left: 100%;
+    }
+}

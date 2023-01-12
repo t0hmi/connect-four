@@ -1,0 +1,7 @@
+<div class="game-grid-container">
+    <div class="column" *ngFor="let column of columns | range" (click)="addToken(column, activePlayer.token)" >
+        <div class="row" *ngFor="let row of rows | range">
+            <div class="cell" [ngClass]="{'cell--player-1' : getCellValue(column,row) === CellValueEnum.Player1, 'cell--player-2': getCellValue(column,row) === CellValueEnum.Player2, 'cell--win': isWinningCell(column,row)}"  ></div>
+        </div>
+    </div>
+</div>

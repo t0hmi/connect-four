@@ -1,0 +1,7 @@
+<div class="game-player-container" [ngClass]="{'player2' : playerNumber === 2}">
+    <img [src]="playerNumber === 1 ? '/assets/player1.svg' : '/assets/player2.svg'" alt="">
+    <div class="game-player"  >
+        <div class="game-player__name">PLAYER {{playerNumber}}</div>
+        <div class="game-player__score">{{score}}</div>
+    </div>
+</div>  
