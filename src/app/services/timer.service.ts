@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { GridService } from './grid.service';
 import { PlayerService } from './player.service';
 
@@ -10,17 +10,23 @@ export class TimerService {
 
   private timeSubject: BehaviorSubject<number>;
   time$ : Observable<number>;
-
+  subscription: Subscription = new Subscription;
+  interval: any;
 
   constructor(private playerService: PlayerService, private gridService: GridService) {
     this.timeSubject = new BehaviorSubject(30);
     this.time$ = this.timeSubject.asObservable();
   }
 
+  clearTimerInterval(): void {
+    clearInterval(this.interval);
+  }
+
+
   createTimer(): void {
     this.timeSubject.next(30);
 
-    setInterval(() => {
+    this.interval = setInterval(() => {
 
       this.gridService.isGameFinish$.subscribe(isGameFinish => {
         if(!isGameFinish) {

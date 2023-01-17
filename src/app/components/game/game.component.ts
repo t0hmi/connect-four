@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GridService } from 'src/app/services/grid.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { TimerService } from 'src/app/services/timer.service';
@@ -9,7 +9,7 @@ import { Player } from 'src/app/shared/types';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
-export class GameComponent implements OnInit {
+export class GameComponent implements OnInit, OnDestroy {
 
   activePlayer$ = this.playerService.activePlayer$;
   isGameFinish$ = this.gridService.isGameFinish$;
@@ -28,6 +28,10 @@ export class GameComponent implements OnInit {
     this.players = this.playerService.updateScoreForWin(activePlayer);
     this.gridService.startGame();
     this.timeService.resetTime();
+  }
+
+  ngOnDestroy(): void {
+    this.timeService.clearTimerInterval();
   }
 
 
