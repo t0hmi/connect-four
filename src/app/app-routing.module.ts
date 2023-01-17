@@ -5,7 +5,8 @@ import { MenuComponent } from './components/menu/menu.component';
 
 const routes: Routes = [
   {path: '', component: MenuComponent},
-  {path: 'game', component: GameComponent}
+  {path: 'game', component: GameComponent},
+  {path: '*', component: MenuComponent}
 ];
 
 @NgModule({

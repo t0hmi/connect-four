@@ -46,4 +46,5 @@ export class PlayerService {
     this.players = {...this.players,  [player.name] : player };
     return this.players;
   }
+
 }
